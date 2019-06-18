@@ -1,3 +1,12 @@
+# react-clicky-game
+It is a memory game with React. The application it is break into UI components, manage component state, and responds to user events
+
+### Instructions
+You have to click in an image, only once to win.
+
+![](/src/images/clicky-game.gif)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
