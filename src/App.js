@@ -11,13 +11,21 @@ class App extends Component {
   state = {
     friend,
     clickedFriend:[],
-    score:0
+    score:0,
+    highScore:0
   };
-//when you click on a card ... the fish is taken out of the array
+//when you click on a card ... the photo is taken out of the array
 imageClick = event => {
+  let temp = 0;
   const currentFriend = event.target.alt;
   const FriendAlreadyClicked =
     this.state.clickedFriend.indexOf(currentFriend) > -1;
+    if (this.state.score > this.state.highScore){
+       temp = this.state.score;
+    }
+    else{
+      temp = this.state.highScore
+    }
 
 //if you click on a fish that has already been selected, the game is reset and cards reordered
   if (FriendAlreadyClicked) {
@@ -26,12 +34,14 @@ imageClick = event => {
         return 0.5 - Math.random();
       }),
       clickedFriend: [],
-      score: 0
+      score: 0,
+      highScore: temp
     });
-      alert("You lose. Play again?");
+    alert("You lose. Play again?");
+  }
 
-//if you click on an available fish, your score is increased and cards reordered
-  } else {
+//if you click on an available photo, your score is increased and cards reordered
+   else {
     this.setState(
       {
         friend: this.state.friend.sort(function(a, b) {
@@ -42,7 +52,7 @@ imageClick = event => {
         ),
         score: this.state.score + 1
       },
-//if you get all 12 fish corrent you get a congrats message and the game resets        
+//if you get all 15 photo corrent you get a congrats message and the game resets        
       () => {
         if (this.state.score === 15) {
           alert("Wow! 15 ... Maximum score!");
@@ -72,6 +82,7 @@ imageClick = event => {
     return (
       <div>
         <Navbar 
+          highScore={this.state.highScore}
           score={this.state.score}
         />
         <Jumbotron />

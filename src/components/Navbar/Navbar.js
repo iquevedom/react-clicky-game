@@ -8,8 +8,8 @@ class Navbar extends Component {
       <nav className="navbar navbar-default navbar-fixed-top">
          <ul>
           <li className="itemLeft">How good is your memory ....?</li>
-          <li className="itemCenter"></li>
-          <li className="itemRight">Score: {this.props.score}</li>
+          <li className="itemCenter">Score: {this.props.score}</li>
+          <li className="itemRight">High Score: {this.props.highScore}</li>
         </ul>
       </nav>
     );
